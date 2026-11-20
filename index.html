@@ -293,6 +293,13 @@ main{max-width:800px;margin-top:-1px;border-radius:36px;background:var(--cream);
 .map-veil{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;
   background:rgba(251,248,243,.35);font-family:var(--script);font-size:clamp(28px,4.5vw,36px);line-height:1.15;color:var(--wine);
   text-shadow:0 0 12px #fff,0 0 4px #fff}
+
+/* программа (кратко) */
+.prog-short{display:flex;flex-direction:column;align-items:center;gap:18px}
+.prog-heart{width:34px;height:34px;fill:var(--wine);filter:drop-shadow(0 4px 8px rgba(91,52,69,.3));animation:beat 1.6s ease-in-out infinite}
+.prog-time{display:flex;align-items:center;gap:clamp(14px,4vw,28px);font-size:clamp(40px,8vw,60px);font-weight:500;color:var(--wine);line-height:1}
+.prog-time i{width:clamp(40px,10vw,80px);height:1px;background:var(--wine);opacity:.5}
+.prog-note{font-size:clamp(15px,2vw,18px);color:var(--ink);font-style:italic}
 </style>
 </head>
 <body class="locked">
@@ -335,6 +342,18 @@ main{max-width:800px;margin-top:-1px;border-radius:36px;background:var(--cream);
         <h3>сентябрь 2027</h3>
         <div class="cal-grid" id="cal"></div>
       </div>
+    </div>
+  </section>
+
+  <div class="divider">М <i>&amp;</i> Ю</div>
+
+  <!-- ================= 3. ПРОГРАММА ================= -->
+  <section id="program">
+    <h2 class="h-script reveal">Программа дня</h2>
+    <div class="prog-short reveal">
+      <svg class="prog-heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      <div class="prog-time"><span>16:00</span><i></i><span>23:00</span></div>
+      <p class="prog-note">Подробная программа появится позже</p>
     </div>
   </section>
 
@@ -446,12 +465,6 @@ main{max-width:800px;margin-top:-1px;border-radius:36px;background:var(--cream);
             <div class="choice c2">
               <input type="radio" name="toast" id="t1" value="Да"><label for="t1">Да</label>
               <input type="radio" name="toast" id="t2" value="Нет"><label for="t2">Нет</label>
-            </div>
-
-            <span class="lbl">Будете ли вы на церемонии?</span>
-            <div class="choice c2" id="ceremonyBox">
-              <input type="radio" name="ceremony" id="c1" value="Да"><label for="c1">Да</label>
-              <input type="radio" name="ceremony" id="c2" value="Нет"><label for="c2">Нет</label>
             </div>
             </div>
             <label class="lbl" for="notes">Что ещё нам важно знать? <span class="opt">(необязательно)</span></label>
@@ -673,8 +686,6 @@ if (document.getElementById('mapLink')) document.getElementById('mapLink').href 
       });
       data.seat = form.seat.value.trim();
       data.toast = form.toast.value;
-      data.ceremony = form.ceremony.value;
-      if (!data.ceremony) { errs.push('ответьте, будете ли вы на церемонии'); markErr(document.getElementById('ceremonyBox')); }
     }
 
     if (errs.length) { errEl.textContent = 'Пожалуйста, ' + [...new Set(errs)].join(', ') + '.'; return; }
