@@ -277,6 +277,22 @@ main{max-width:800px;margin-top:-1px;border-radius:36px;background:var(--cream);
   .arch{border-radius:200px 200px 0 0}
   main{margin:-1px 8px 50px}
 }
+
+/* место пока неизвестно: карта размыта */
+.map.tbd{background:
+  linear-gradient(28deg,transparent 46%,#fff 46% 50%,transparent 50%),
+  linear-gradient(118deg,transparent 30%,#fff 30% 33%,transparent 33%),
+  linear-gradient(118deg,transparent 68%,#fdfcf8 68% 70%,transparent 70%),
+  linear-gradient(28deg,transparent 18%,#fdfcf8 18% 20%,transparent 20%),
+  radial-gradient(circle at 30% 70%,#d9e6cf 0 14%,transparent 15%),
+  radial-gradient(circle at 75% 25%,#cfdfe9 0 10%,transparent 11%),
+  #ece7df}
+.map.tbd::before{content:"";position:absolute;inset:0;border-radius:50%;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.map.tbd{isolation:isolate;clip-path:circle(50%)}
+.map.tbd iframe{filter:blur(7px) saturate(.7);transform:scale(1.08);pointer-events:none}
+.map-veil{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:rgba(251,248,243,.35);font-family:var(--script);font-size:clamp(28px,4.5vw,36px);line-height:1.15;color:var(--wine);
+  text-shadow:0 0 12px #fff,0 0 4px #fff}
 </style>
 </head>
 <body class="locked">
@@ -324,35 +340,20 @@ main{max-width:800px;margin-top:-1px;border-radius:36px;background:var(--cream);
 
   <div class="divider">М <i>&amp;</i> Ю</div>
 
-  <!-- ================= 3. ПРОГРАММА ================= -->
-  <section id="program">
-    <h2 class="h-script reveal">Программа дня</h2>
-    <div class="timeline" id="timeline">
-      <svg class="tl-svg"><path class="tl-base"/><path class="tl-prog"/></svg>
-      <div class="tl-heart"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
-
-      <div class="tl-item r"><div class="tl-time">11:00</div><div class="tl-title">Сбор гостей</div><div class="tl-text">Приветственный фуршет и лёгкая музыка</div></div>
-      <div class="tl-item l"><div class="tl-time">11:40</div><div class="tl-title">Церемония</div><div class="tl-text">Торжественный обмен клятвами</div></div>
-      <div class="tl-item r"><div class="tl-time">12:30</div><div class="tl-title">Фотосессия</div><div class="tl-text">Прогулка в музее и общие кадры</div></div>
-      <div class="tl-item l"><div class="tl-time">15:30</div><div class="tl-title">Велком зона</div><div class="tl-text">Ознакомление с рассадкой. Небольшой фуршет</div></div>
-      <div class="tl-item r"><div class="tl-time">16:00</div><div class="tl-title">Банкет</div><div class="tl-text">Ужин, тосты и танцы</div></div>
-      <div class="tl-item l"><div class="tl-time">22:00</div><div class="tl-title">Окончание банкета</div><div class="tl-text">&nbsp;</div></div>
-    </div>
-  </section>
-
-  <div class="divider">М <i>&amp;</i> Ю</div>
-
   <!-- ================= 4. МЕСТО ================= -->
   <section id="place">
     <div class="wrap">
       <h2 class="h-script reveal">Где всё произойдёт</h2>
-      <div class="map reveal">
-        <iframe id="mapFrame" loading="lazy" title="Карта: ресторан «Лалалэнд»"></iframe>
+      <div class="map tbd reveal">
+        <iframe id="mapFrame" loading="lazy" tabindex="-1" aria-hidden="true" title="Карта"></iframe>
+        <div class="map-veil"><span>Скоро здесь<br>появится карта</span></div>
       </div>
-      <p class="place caps reveal">Ресторан «Лалалэнд»</p>
-      <p class="addr reveal">ул. Кирова 56</p>
+      <p class="place caps reveal">Место уточняется</p>
+      <p class="addr reveal">Мы обязательно сообщим адрес<br>ближе к дате свадьбы</p>
+<!-- Когда место станет известно, верните кнопку:
       <a class="btn reveal" id="mapLink" target="_blank" rel="noopener"
          href="https://yandex.ru/maps/?text=%D0%A1%D1%8B%D0%BA%D1%82%D1%8B%D0%B2%D0%BA%D0%B0%D1%80%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9A%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%2C%2056">Смотреть на карте</a>
+      -->
       <div class="note reveal" style="margin-top:34px">
         <h3 class="h-script sm">Полезно знать</h3>
         <p>Рядом с площадкой есть бесплатная парковка для гостей. Вход находится справа здания</p>
@@ -498,7 +499,7 @@ const MENU = ['Свинина','Курица','Рыба'];
 // Карта: ID организации в Яндекс Картах (число из ссылки вида yandex.ru/maps/org/lalalend/1234567890/).
 // Если указан — на карте будет метка заведения с названием и рейтингом.
 const MAP_OID = '';
-const MAP_QUERY = 'Лалаленд, Сыктывкар, улица Кирова, 56';
+const MAP_QUERY = 'Сыктывкар';
 /* =============================================== */
 
 const HEART = '<svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
@@ -518,9 +519,9 @@ document.getElementById('openBtn').addEventListener('click', () => {
 /* --- карта --- */
 document.getElementById('mapFrame').src = MAP_OID
   ? `https://yandex.ru/map-widget/v1/?mode=search&ol=biz&oid=${MAP_OID}&z=18`
-  : `https://yandex.ru/map-widget/v1/?mode=search&text=${encodeURIComponent(MAP_QUERY)}&z=18`;
+  : `https://yandex.ru/map-widget/v1/?mode=search&text=${encodeURIComponent(MAP_QUERY)}&z=14`;
 
-document.getElementById('mapLink').href = MAP_OID
+if (document.getElementById('mapLink')) document.getElementById('mapLink').href = MAP_OID
   ? `https://yandex.ru/maps/org/${MAP_OID}/`
   : `https://yandex.ru/maps/?text=${encodeURIComponent(MAP_QUERY)}`;
 
@@ -542,6 +543,7 @@ document.getElementById('mapLink').href = MAP_OID
 /* --- программа дня: сердце движется по дорожке --- */
 (function(){
   const tl = document.getElementById('timeline');
+  if (!tl) return;
   const svg = tl.querySelector('.tl-svg');
   const base = svg.querySelector('.tl-base'), prog = svg.querySelector('.tl-prog');
   const heart = tl.querySelector('.tl-heart');
