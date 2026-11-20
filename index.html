@@ -408,7 +408,7 @@ main{max-width:800px;margin-top:-1px;border-radius:36px;background:var(--cream);
       <div class="wishes">
         <div class="wish reveal"><h3>Ваше присутствие</h3><p>Главный подарок — вы рядом в этот день.</p></div>
         <div class="wish reveal"><h3>Цветы</h3><p>Невеста очень любит живые цветы, такие как пионы и кустовые розы!</p></div>
-        <div class="wish reveal"><h3>Пожелание</h3><p>Будем благодарны, если каждый желающий выберет комфортную для себя сумму и пополнит наш персональный цветочный счёт в «Пыльце». А вместе с букетами нам будут передавать открытки с тёплыми пожеланиями от вас.</p>
+        <div class="wish reveal"><h3>Пожелание</h3><p>Будем благодарны, если каждый желающий выберет комфортную для себя сумму и пополнит наш персональный цветочный счёт в салоне «Пыльца». После нашего возвращения домой нам будут доставлять цветы прямо домой, а вместе с каждым букетом мы будем получать открытки с вашими тёплыми пожеланиями.</p>
           <a href="https://vk.ru/pylca_syktyvkar" target="_blank" rel="noopener">Салон цветов</a></div>
         <div class="wish reveal"><h3>Впечатления</h3><p>Делитесь фото и видео с праздника — сохраним на память.</p></div>
         <svg class="wishes-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20.5l-1.2-1.1C6 15 3 12.2 3 8.8 3 6.1 5.1 4 7.8 4c1.6 0 3.1.7 4.2 1.9C13.1 4.7 14.6 4 16.2 4 18.9 4 21 6.1 21 8.8c0 3.4-3 6.2-7.8 10.6L12 20.5z"/></svg>
@@ -463,8 +463,11 @@ main{max-width:800px;margin-top:-1px;border-radius:36px;background:var(--cream);
 
             <span class="lbl">Готовы ли вы сказать тост? <span class="opt"></span></span>
             <div class="choice c2">
-              <input type="radio" name="toast" id="t1" value="Да"><label for="t1">Да</label>
-              <input type="radio" name="toast" id="t2" value="Нет"><label for="t2">Нет</label>
+              <input type="radio" name="toast" id="t1" value="Да" required>
+                    <label for="t1">Да</label>
+
+              <input type="radio" name="toast" id="t2" value="Нет" required>
+                <label for="t2">Нет</label>
             </div>
             </div>
             <label class="lbl" for="notes">Что ещё нам важно знать? <span class="opt">(необязательно)</span></label>
