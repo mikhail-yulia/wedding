@@ -347,13 +347,19 @@ main{max-width:800px;margin-top:-1px;border-radius:36px;background:var(--cream);
 
   <div class="divider">М <i>&amp;</i> Ю</div>
 
-  <!-- ================= 3. ПРОГРАММА ================= -->
+   <!-- ================= 3. ПРОГРАММА ================= -->
   <section id="program">
     <h2 class="h-script reveal">Программа дня</h2>
-    <div class="prog-short reveal">
-      <svg class="prog-heart" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-      <div class="prog-time"><span>16:00</span><i></i><span>23:00</span></div>
-      <p class="prog-note">Подробная программа появится позже</p>
+    <div class="timeline" id="timeline">
+      <svg class="tl-svg"><path class="tl-base"/><path class="tl-prog"/></svg>
+      <div class="tl-heart"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+
+      <div class="tl-item r"><div class="tl-time">11:00</div><div class="tl-title">Сбор гостей</div><div class="tl-text">Приветственный фуршет и лёгкая музыка</div></div>
+      <div class="tl-item l"><div class="tl-time">11:40</div><div class="tl-title">Церемония</div><div class="tl-text">Торжественный обмен клятвами</div></div>
+      <div class="tl-item r"><div class="tl-time">12:30</div><div class="tl-title">Фотосессия</div><div class="tl-text">Прогулка в музее и общие кадры</div></div>
+      <div class="tl-item l"><div class="tl-time">15:30</div><div class="tl-title">Велком зона</div><div class="tl-text">Ознакомление с рассадкой. Небольшой фуршет</div></div>
+      <div class="tl-item r"><div class="tl-time">16:00</div><div class="tl-title">Банкет</div><div class="tl-text">Ужин, тосты и танцы</div></div>
+      <div class="tl-item l"><div class="tl-time">22:00</div><div class="tl-title">Окончание банкета</div><div class="tl-text">&nbsp;</div></div>
     </div>
   </section>
 
@@ -363,16 +369,13 @@ main{max-width:800px;margin-top:-1px;border-radius:36px;background:var(--cream);
   <section id="place">
     <div class="wrap">
       <h2 class="h-script reveal">Где всё произойдёт</h2>
-      <div class="map tbd reveal">
-        <iframe id="mapFrame" loading="lazy" tabindex="-1" aria-hidden="true" title="Карта"></iframe>
-        <div class="map-veil"><span>Скоро здесь<br>появится карта</span></div>
+      <div class="map reveal">
+        <iframe id="mapFrame" loading="lazy" tabindex="-1" aria-hidden="true" title="Карта: ресторан «Траттория Густо»"></iframe>
       </div>
-      <p class="place caps reveal">Место уточняется</p>
-      <p class="addr reveal">Мы обязательно сообщим адрес<br>ближе к дате свадьбы</p>
-<!-- Когда место станет известно, верните кнопку:
+      <p class="place caps reveal">Ресторан «Траттория Густо»</p>
+      <p class="addr reveal">ул. 50 лет Октября, 172,<br>Тимашевск, Краснодарский край</p>
       <a class="btn reveal" id="mapLink" target="_blank" rel="noopener"
-         href="https://yandex.ru/maps/?text=%D0%A1%D1%8B%D0%BA%D1%82%D1%8B%D0%B2%D0%BA%D0%B0%D1%80%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9A%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%2C%2056">Смотреть на карте</a>
-      -->
+         href="https://yandex.ru/maps/org/trattoriya_gusto/42046175980/">Смотреть на карте</a>
     </div>
   </section>
 
@@ -390,12 +393,13 @@ main{max-width:800px;margin-top:-1px;border-radius:36px;background:var(--cream);
   <section>
     <div class="wrap note" style="max-width:460px">
       <h2 class="h-script reveal">Дресс-код</h2>
-      <p class="reveal">Будем рады, если вы поддержите элегантный стиль вечера и выберете наряды в пастельных тонах.</p>
-      <div class="palette reveal">
+      <p class="reveal">Для нас важна атмосфера, поэтому мы просим вас выбирать ПАСТЕЛЬНЫЕ ТОНА.
+Пожалуйста, откажитесь от ярких и тёмных цветов в пользу мягких, спокойных и воздушных оттенков. Так фотографии получатся особенно красивыми.</p>
+     <!-- <div class="palette reveal">
         <span style="background:#9ba283"></span><span style="background:#a9a38c"></span><span style="background:#7e6550"></span>
         <span style="background:#ccb29a"></span><span style="background:#f2ede6"></span>
         <span style="background:#e8d6c3"></span><span style="background:#c3a46e"></span><span style="background:#f3c4c0"></span>
-      </div>
+      </div>-->
     </div>
   </section>
 
@@ -510,8 +514,8 @@ const DRINKS = ['Игристое','Сок','Лимонад / морс','Чай 
 const MENU = ['Свинина','Курица','Рыба'];
 // Карта: ID организации в Яндекс Картах (число из ссылки вида yandex.ru/maps/org/lalalend/1234567890/).
 // Если указан — на карте будет метка заведения с названием и рейтингом.
-const MAP_OID = '';
-const MAP_QUERY = 'Сыктывкар';
+const MAP_OID = '42046175980';
+const MAP_QUERY = 'Траттория Густо, Тимашевск, улица 50 лет Октября, 172';
 /* =============================================== */
 
 const HEART = '<svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>';
